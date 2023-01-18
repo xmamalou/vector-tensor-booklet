@@ -1,0 +1,52 @@
+% Use this file to add notes related to your experiment.
+
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+	\subsection{Αποδείξεις θεωρημάτων}
+	
+	\begin{unnum}
+		(2.1.1) Έστω βάση ${S = {e_j}}$ του χώρου $V$. Το σύνολο ${S' = \{(\boldsymbol{e}_j + \boldsymbol{u}_j)\}}$ είναι επίσης βάση του χώρου $V$, αν ${\det{(U)}\neq 0}$, όπου $U$ ο πίνακας με στοιχεία ${U_{ji} = u_{ji} + \delta_{ji}}$, ${u_{ji}}$ οι συνιστώσες των $\boldsymbol{u}_j$ στην βάση $S$ και $\delta_{ij}$ το δέλτα του Κρόνεκερ.\\
+	\end{unnum}
+	\begin{proof}[Απόδειξη]
+		Tα ανύσματα $\boldsymbol{u}_j$ γράφονται ως κάτωθι:
+		\begin{align*}
+			\boldsymbol{u}_j = \sum^n_{i=0}u_{ji}\boldsymbol{e}_i
+		\end{align*}
+	
+		Γενικά, θέλουμε να ισχύει η ισοδυναμία:
+		\begin{align*}
+			\sum^n_{j=0}a_j(\boldsymbol{e}_j + \boldsymbol{u}_j) = 0 \Leftrightarrow \forall j \leq n(a_n = 0)
+		\end{align*}
+	
+		Από το δεξιό μέλος της ισοδυναμίας
+		\begin{align*}
+			\sum^n_{j=0}a_j\left(\boldsymbol{e}_j + \sum^n_{i=0}u_{ji}\boldsymbol{e}_i\right) &= 0\\
+			\sum^n_{j=0}a_j\sum^n_{i=0}(u_{ji} + \delta_{ji})\boldsymbol{e}_i &= 0 \\
+			\sum^n_{j=0}\sum^n_{i=0}a_j(u_{ji} + \delta_{ji})\boldsymbol{e}_i &= 0 \\
+			\sum^n_{i=0}\sum^n_{j=0}a_j(u_{ji} + \delta_{ji})\boldsymbol{e}_i &= 0 \\
+		\end{align*}
+	
+		Προφανώς, αφού $S = {\boldsymbol{e}_n}$ βάση, τότε ισχύει:
+		\begin{align*}
+			\forall i \leq n\left(\sum^n_{j=0}a_j(u_{ji} + \delta_{ji}) = 0 \right) \; (a)
+		\end{align*}
+	
+		Αυτό είναι σύστημα $n$ εξισώσεων με $n$ αγνώστους.
+		
+		Παρατηρούμε ότι οι εξισώσεις αυτές, αν θεωρήσουμε τις $a_j$ ως τις μεταβλητές, παριστάνουν ευθείες που τέμνουν την αρχή των αξόνων. Όπως είναι προφανές, δύο
+		ευθείες μη παράλληλες τέμνουν η μία την άλλη σε πολύ ένα σημείο. Οπότε, έτσι ώστε να επάγεται από την $(a)$ μόνον ότι $\forall j \leq n (a_j = 0)$, πρέπει να 
+		εξασφαλίσουμε ότι δεν υπάρχουν ευθείες παράλληλες μεταξύ τους.
+		
+		Δύο ευθείες της μορφής $\sum^n_{i=} = y,\; ax = y$ είναι παράλληλες, αν $b \equiv a$. Στις εξισώσεις της $(a)$, αν ίσχυε αυτό, τότε η τυχούσα σταθερά αναλογίας απαλοίφεται
+	\end{proof}
+
+	\subsection{Σύνοψη τανυστικών εννοιών και πράξεων}
+	Έστω ανυσματικός χώρος $V$, μετρικής $g\indices{_i_j}$
+	\begin{itemize}
+		\item $u\indices{^i}$: Ανταλλοίωτο, συνιστώσα ανύσματος χώρου $V$
+		\item $u\indices{_i}$: Συναλλοίωτο, συνιστώσα συναρτησοειδούς χώρου $V^*$
+		\item $g^{ij}g_{ij}=\delta_{ij}$: Σχέση 
+		\item $u\indices{_i} = g\indices{_i_j}u\indices{^j}$: Καταβίβαση δείκτη
+	\end{itemize}
+\end{document}
