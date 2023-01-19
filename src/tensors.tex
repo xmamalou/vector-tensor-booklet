@@ -220,17 +220,29 @@
 	\begin{align*}
 		\boldsymbol{C}\cdot\boldsymbol{u}' &= \boldsymbol{u} \Leftrightarrow\\
 		\boldsymbol{C}^{-1}\cdot\boldsymbol{C}\cdot\boldsymbol{u}' &= \boldsymbol{C}^{-1}\cdot\boldsymbol{u} \Leftrightarrow\\
-		\boldsymbol{u}' &= \boldsymbol{C}^{-1}\cdot\boldsymbol{u}'
+		\boldsymbol{u}' &= \boldsymbol{C}^{-1}\cdot\boldsymbol{u}
 	\end{align*}
 	Με άλλα λόγια, ο πίνακας που μετασχηματίζει τις συντεταγμένες (τα ανταλλοίωτα) από την βάση $S$ στην βάση $S'$ είναι ο αντίστροφος του πίνακα που μετασχηματίζει τα ανύσματα της βάσης $S$ στην βάση $S'$. 
+	
+	\begin{theorem}
+		Έστω ανυσματικός χώρος $V$. Τα ανταλλοίωτά του αλλάζουν από βάση $S$ σε βάση $S'$ ως εξής:
+		\begin{align*}
+			u'^i = T^i_ju^j
+		\end{align*}
+		όπου $T^i_j$ ο γραμμικός μετασχηματισμός ανταλλοιώτων από την βάση $S$ στην βάση $S'$ και σχετίζεται με τον μετασχηματισμό βάσης $C^i_j$ ως εξής:
+		\begin{align*}
+			T^i_kC^k_j = \delta_{ij}
+		\end{align*}
+		Δηλαδή είναι ο αντίστροφος πίνακας του μετασχηματισμού βάσεων.
+	\end{theorem}
 	
 	Τώρα πρέπει να βρούμε πώς να μετασχηματίσουμε τους τανυστές από την βάση $S$ στην βάση $S'$. Έστω μετασχηματισμός ανταλλοιώτων $T^i_j$ μεταξύ των δύο βάσεων. Ισχύει:
 	\begin{align*}
 		\tau'_{i_1i_2\ldots i_k}a'^{i_1}b'^{i_2}\ldots z'^{i_k} &= \tau_{i_1i_2\ldots i_k}a^{i_1}b^{i_2}\ldots z^{i_k} \Leftrightarrow \\
-		\tau'_{i_1i_2\ldots i_k}T^{i_1}_{j_1}a^{j_1}T^{i_2}_{j_2}b^{j_2}\ldots T^{i_k}_{j_k}z'^{j_k} &=  \tau_{i_1i_2\ldots i_k}a^{i_1}b^{i_2}\ldots z^{i_k} \Leftrightarrow \\
-		T^{i_1}_{j_1}T^{i_2}_{j_2}\ldots T^{i_k}_{j_k}\tau'_{i_1i_2\ldots i_k}a^{j_1}b^{j_2}\ldots z^{j_k} &= \tau_{i_1i_2\ldots i_k}a^{i_1}b^{i_2}\ldots z^{i_k} \overset{\text{αντίστροφος μετ/σμός}}{\Leftrightarrow}\\
-		(T^{-1})^{i_1}_{j_1}(T^{-1})^{i_2}_{j_2}\ldots(T^{-1})^{i_k}_{j_k}T^{i_1}_{j_1}T^{i_2}_{j_2}\ldots T^{i_k}_{j_k}\tau'_{i_1i_2\ldots i_k}a^{j_1}b^{j_2}\ldots z^{j_k} &= (T^{-1})^{j_1}_{i_1}(T^{-1})^{j_2}_{i_2}\ldots(T^{-1})^{j_k}_{i_k}\tau_{i_1i_2\ldots i_k}a^{i_1}b^{i_2}\ldots z^{i_k}\Leftrightarrow\\
-		\tau'_{i_1i_2\ldots i_k}a^{j_1}b^{j_2}\ldots z^{j_k} &= (T^{-1})^{j_1}_{i_1}(T^{-1})^{j_2}_{i_2}\ldots(T^{-1})^{j_k}_{i_k}\tau_{j_1j_2\ldots j_k}a^{i_1}b^{i_2}\ldots z^{i_k}
+		\tau'_{i_1i_2\ldots i_k}T^{i_1}_{j_1}a^{j_1}T^{i_2}_{j_2}b^{j_2}\ldots T^{i_k}_{j_k}z^{j_k} &=  \tau_{i_1i_2\ldots i_k}a^{i_1}b^{i_2}\ldots z^{i_k} \Leftrightarrow \\
+		T^{i_1}_{j_1}T^{i_2}_{j_2}\ldots T^{i_k}_{j_k}\tau'_{i_1i_2\ldots i_k}a^{j_1}b^{j_2}\ldots z^{j_k} &= \tau_{i_1i_2\ldots i_k}a^{i_1}b^{i_2}\ldots z^{i_k} \Rightarrow\\
+		T^{i_1}_{j_1}T^{i_2}_{j_2}\ldots T^{i_k}_{j_k}\tau'_{i_1i_2\ldots i_k} &= \tau_{j_1j_2\ldots j_k} \overset{\text{αντίστροφος μετ/σμός}}{\Leftrightarrow}\\
+		\tau'_{i_1i_2\ldots i_k} &= (T^{-1})^{j_1}_{i_1}(T^{-1})^{j_2}_{i_2}\ldots(T^{-1})^{j_k}_{i_k}\tau_{j_1j_2\ldots j_k}
 	\end{align*}
 	Ως εκ τούτου, καταλήγουμε στο κάτωθι:
 	\begin{theorem}
@@ -308,7 +320,7 @@
 		&F_\mu^{i_1i_2\ldots i_k}u_{i_1}u_{i_2}\ldots u_{i_k} \; \text{πολυγραμμικός τελεστής συναλλοιώτων} \\
 	\end{align*}
 	
-	Τα αντικείμενα $F^\mu_{i_1i_2\ldots i_k}$ και $F_\mu^{i_1i_2\ldots i_k}$ είναι τανυστές τάξης $(1,k)$ και $(k,1)$ αντιστοίχως και ανήκουν στους χώρους $\mathcal{L}^k(V)$ και $\mathcal{L}^{k}(V^*)$ αντιστοίχως.
+	Τα αντικείμενα $F^\mu_{i_1i_2\ldots i_k}$ και $F_\mu^{i_1i_2\ldots i_k}$ ανήκουν στους χώρους $\mathcal{L}^k(V)$ και $\mathcal{L}^{k}(V^*)$ αντιστοίχως.
 	
 	\begin{corollary}
 		Έστωσαν ανυσματικός χώρος $V$ και ο δυϊκός του χώρος $V^*$. Οι χώροι των πολυγραμμικών τους τελεστών $\mathcal{L}^k(V)$ και $\mathcal{L}^k(V^*)$ έχουν διάσταση $\dim(\mathcal{L}^k(V)) = \dim(\mathcal{L}^k(V^*)) = (\dim(V))^{k+1} = (\dim(V^*))^{k+1}$
@@ -375,8 +387,28 @@
 		\end{align*} 
 	\end{definition} 
 	
-	\subsection{Αναμειγνύοντας ανυσματικούς χώρους - Το τανυστικό γινόμενο}
-	Τώρα που έχουμε μιλήσει για νέους χώρους που εμφανίζονται «φυσικά» από έναν χώρο $V$, θα ήταν βολικό αν μπορούσαμε να συνθέσουμε διαφορετικούς χώρους μεταξύ τους.
+	Αυτό που απομένει να πούμε είναι πώς μετασχηματίζεται ένας τανυστής τάξης $(k,l)$. Θα ακολουθήσουμε την ίδια διαδικασία με τον συναλλοίωτο τανυστή:
+	\begin{align*}
+		F'^{i_1i_2\ldots i_k}_{j_1j_2\ldots j_\ell}f'_{i_1}f'_{i_2}\ldots f'_{i_k}u'^{j_1}u'^{j_2}\ldots u'^{j_\ell} &= F^{i_1i_2\ldots i_k}_{j_1j_2\ldots j_\ell}f_{i_1}f_{i_2}\ldots f_{i_k}u^{j_1}u^{j_2}\ldots u^{j_\ell}\\
+		(T^{-1})^{\mu_1}_{i_1}(T^{-1})^{\mu_2}_{i_2}\ldots(T^{-1})^{\mu_k}_{i_k}T^{j_1}_{\nu_1}T^{j_2}_{\nu_2}\ldots T^{j_\ell}_{\nu_\ell}F'^{i_1i_2\ldots i_k}_{j_1j_2\ldots j_\ell}f_{\mu_1}f_{\mu_2}\ldots f_{\mu_k}u^{\nu_1}u^{\nu_2}\ldots u^{\nu_\ell}&= F^{i_1i_2\ldots i_k}_{j_1j_2\ldots j_\ell}f_{i_1}f_{i_2}\ldots f_{i_k}u^{j_1}u^{j_2}\ldots u^{j_\ell}\\
+		(T^{-1})^{\mu_1}_{i_1}(T^{-1})^{\mu_2}_{i_2}\ldots(T^{-1})^{\mu_k}_{i_k}T^{j_1}_{\nu_1}T^{j_2}_{\nu_2}\ldots T^{j_\ell}_{\nu_\ell}F'^{i_1i_2\ldots i_k}_{j_1j_2\ldots j_\ell} &= F^{\mu_1\mu_2\ldots \mu_k}_{\nu_1\nu_2\ldots \nu_\ell} \overset{\text{αντίστροφος μετ/σμός}}{\Leftrightarrow}\\
+		F'^{i_1i_2\ldots i_k}_{j_1j_2\ldots j_\ell} = T^{i_1}_{\mu_1}T^{i_2}_{\mu_2}\ldots T^{i_k}_{\mu_k}(T^{-1})^{\nu_1}_{j_1}(T^{-1})^{\nu_2}_{j_2}\ldots(T^{-1})^{\nu_\ell}_{j_\ell}&F^{\mu_1\mu_2\ldots \mu_k}_{\nu_1\nu_2\ldots \nu_\ell}
+	\end{align*}
+
+	Άρα, καταλήγουμε στο συμπέρασμα:
+	\begin{theorem}
+		Έστωσαν ανυσματικός χώρος $V$ και ο δυϊκός χώρος του $V^*$. Ένας μεικτός τανυστής τάξης $(k,l)$ των χώρων αυτών μετασχηματίζεται ως εξής:
+		\begin{align*}
+			F'^{i_1i_2\ldots i_k}_{j_1j_2\ldots j_\ell} = T^{i_1}_{\mu_1}T^{i_2}_{\mu_2}\ldots T^{i_k}_{\mu_k}(T^{-1})^{\nu_1}_{j_1}(T^{-1})^{\nu_2}_{j_2}\ldots(T^{-1})^{\nu_\ell}_{j_\ell}&F^{\mu_1\mu_2\ldots \mu_k}_{\nu_1\nu_2\ldots \nu_\ell}
+		\end{align*}
+		όπου $T^i_j$ και $(T^{-1})^i_j$ ο μετασχηματισμός ανταλλοίωτου και ο αντίστροφός του αντιστοίχως.
+	\end{theorem}
+
+	Αυτή η πρόταση συχνά χρησιμοποιείται ως ο ορισμός ενός τανυστή. Και είναι ικανοποιητικός για αρκετές εφαρμογές στην Φυσική. Μπορεί να φανεί περίεργο το γεγονός ότι ορίζονται με βάση το πώς συμπεριφέρονται, αλλά αυτό είναι συχνό φαινόμενο στα Μαθηματικά. Ούτως ή άλλως, τα αλγεβρικά σώματα και τα ανύσματα και αυτά ορίζονται μέσω της συμπεριφοράς τους. Και αυτό είναι που τα κάνει έννοιες χρήσιμες και την Άλγεβρα τόσο ισχυρό εργαλείο. 
+	
+	\subsection{Φτιάχνοντας τανυστές - Το τανυστικό γινόμενο}
+	Έχουμε μιλήσει σε ικανοποιητικό επίπεδο για αρκετές αλγεβρικές ιδιότητες των ανυσματικών χώρων και έχουμε κάνει μια εισαγωγή στους τανυστές, αλλά ο ορισμός των τανυστών ως πολυγραμμικές απεικονίσεις είναι δύσχρηστος· θα πρέπει να κατεβάζουμε συναρτήσεις από το μυαλό μας και να ελέγχουμε αν ικανοποιούν τα αξιώματα. Ή θα πρέπει να εμφανίζουμε «τυχαίες» ποσότητες κάτω από πολλαπλές βάσεις και να δούμε αν σχετίζονται όπως πρέπει κάτω από μετασχηματισμούς. Προφανώς, αυτό δεν είναι δυνατόν, ιδιαίτερα όταν έχουμε να κάνουμε με τανυστές μεγάλης τάξης. Ευτυχώς, η Άλγεβρα μας δίνει την λύση και, όπως θα δούμε, μπορούμε να δημιουργήσουμε έναν τανυστή απλά με σειρές συναλλοιώτων και ανταλλοιώτων.
+	
 	
 	\begin{definition}
 		Έστωσαν ανυσματικοί χώροι $V$ και $W$ πεπερασμένης διάστασης, με βάσεις $S_V$ και $S_W$.
@@ -396,7 +428,7 @@
 	
 	Έχοντας ορίσει μία πράξη που μοιάζει με άθροισμα, θέλουμε τώρα να ορίσουμε μια πράξη η οποία μοιάζει με γινόμενο. Αυτή η πράξη είναι το τανυστικό γινόμενο.
 	\begin{definition}
-		Ορίζουμε ως \textbf{τανυστικό γινόμενο} (tensor product) δύο ανυσματικών χώρων $V$ και $W$ τον ανυσματικό χώρο $V\otimes W$, ο οποίος είναι το σύνολο αφίξεως της πράξης ${\otimes:V\times W \rightarrow V\otimes W}$, η οποία ικανοποιεί τις κάτωθι συνθήκες:
+		Ορίζουμε ως \textbf{τανυστικό γινόμενο} (tensor product) δύο ανυσματικών χώρων $V$ και $W$ πεπερασμένης διάστασης τον ανυσματικό χώρο $V\otimes W$, ο οποίος είναι το σύνολο αφίξεως της πράξης ${\otimes:V\times W \rightarrow V\otimes W}$, η οποία ικανοποιεί τις κάτωθι συνθήκες:
 		\begin{itemize}
 			\item Είναι διγραμμική ως προς τα ορίσματά της
 			\item Για κάθε \textbf{διγραμμική} απεικόνιση ${\tau : V\times W \rightarrow Z}$ υπάρχει μοναδική \textbf{γραμμική} απεικόνιση ${\tilde{\tau}:V\otimes W \rightarrow Z}$ για την οποία να ισχύει το εξής: $\forall \boldsymbol{u} \in V, \boldsymbol{w} \in W[\tau(\boldsymbol{u},\boldsymbol{w}) = \tilde{\tau}(\otimes(\boldsymbol{u},\boldsymbol{w}))]$
@@ -410,4 +442,213 @@
  		a(\boldsymbol{u}\otimes\boldsymbol{w}) = [(a\boldsymbol{u})\otimes\boldsymbol{w}] &= [\boldsymbol{u}\otimes(a\boldsymbol{w})]
  	\end{align*}
  	Αυτά θυμίζουν αρκετά την επιμεριστική και την προσεταιριστική ιδιότητα του πολλαπλασιασμού, εξού και η ονομασία.
+ 	
+ 	Εφόσον η πράξη του τανυστικού γινομένου είναι πολυγραμμική, αυτό σημαίνει ότι μπορούμε να κάνουμε την εξής διαδικασία:
+ 	\begin{align*}
+ 		(\boldsymbol{u}\otimes\boldsymbol{w}) &= \left(\left(\sum_{i=0}^{\dim(V)}u^i\boldsymbol{e}^V_i\right)\otimes\left(\sum_{j=0}^{\dim(W)}w^j\boldsymbol{e}^W_j\right)\right) \\
+ 		&= \sum_{i=0}^{\dim(V)}\sum_{j=0}^{\dim(W)}u^iw^j(\boldsymbol{e}^V_i\otimes\boldsymbol{e}^W_j)
+ 	\end{align*}
+ 
+ 	Άρα, για δεδομένες βάσεις $S_V$ και $S_W$ των δύο ανυσματικών χώρων, το τανυστικό τους γινόμενο έχει βάση $\{(\boldsymbol{e}^V_i\otimes\boldsymbol{e}^W_j)\}$ και συντεταγμένες $u^iw^j$ πάνω σε αυτήν την βάση.
+ 
+ 	\begin{corollary}
+ 		Το τανυστικό γινόμενο δύο ανυσματικών χώρων έχει διάσταση $\dim(V\otimes W) = \dim(V)\cdot\dim(W)$
+ 	\end{corollary}
+ 
+ 	Το τανυστικό γινόμενο μπορεί να επεκταθεί εύκολα σε περισσότερους από δύο ανυσματικούς χώρους.
+ 	\begin{definition}
+ 		Για ανυσματικούς χώρους $V_i$, $i\in\mathbb{N}$, ορίζουμε το τανυστικό γινόμενο ως το σύνολο αφίξεως της πράξης $\bigotimes:\prod_{i=1}^{n}V_i\rightarrow\bigotimes_{i=1}^{n}V_i$, η οποία είναι πολυγραμμική και για κάθε πολυγραμμική απεικόνιση που δρα πάνω σε όλα τα $V_i$ υπάρχει μοναδική γραμμική απεικόνιση που δρα πάνω στο τανυστικό γινόμενο και δίνει το ίδιο αποτέλεσμα.
+ 		
+ 		Η διάσταση του χώρου αυτού είναι ${\dim(\bigotimes_{i=1}^{n}V_i) = \prod_{i=1}^{n}\dim(V_i)}$ και για βάσεις $S_i$ των ανυσματικών χώρων $V_i$, η βάση και οι συντεταγμένες του τανυστικού γινομένου προκύπτουν ως εξής:
+ 		\begin{align*}
+ 			\boldsymbol{e}^\oplus_{i_1i_2\ldots i_n} &= \left(\bigotimes_{j=1}^{n}\boldsymbol{e}_{i_j}\right) \\
+ 			\left(\bigotimes_{j=1}^{n}\boldsymbol{u}_j\right)_{i_1i_2\ldots i_n} &= u_{i_1}u_{i_2}\ldots u_{i_n}
+ 		\end{align*} 
+ 	\end{definition}
+ 
+ 	Εμάς μας ενδιαφέρουν δύο ανυσματικοί χώροι: Ο κύριος χώρος με τον οποίο δουλεύουμε, ο $V$, και ο δυϊκός του χώρος, $V^*$. Έτσι, το τανυστικό γινόμενο θα αποτελείται από τους δύο αυτούς χώρους.
+ 	
+ 	Πρέπει να τονισθεί εδώ κάτι. Δεν έχει γίνει λόγος περί μεταθετικότητας για το τανυστικό γινόμενο. Οπότε η σειρά των δεικτών \textbf{EXEI ΣΗΜΑΣΙΑ}. Και επειδή εδώ δουλεύουμε με συναλλοίωτα και ανταλλοίωτα, όπου οι δείκτες μπορούν να βρίσκονται πάνω και κάτω, αυτό σημαίνει ότι γραφές της μορφής:
+ 	\begin{align*}
+ 		F^{i_1i_2\ldots i_k}_{j_1j_2\ldots j_\ell}
+ 	\end{align*}
+ 	από εδώ και στο εξής ΔΕΝ θα είναι αποδεκτές. Αντ' αυτού, πρέπει να είναι καθαρή η σειρά των δεικτών, οπότε πρέπει να γράφουμε τέτοια αντικείμενα με έναν νέο τρόπο. Για παράδειγμα:
+ 	\begin{align*}
+ 		F\indices{^{i_1}^{i_2}_{i_3}^{i_4}}
+ 	\end{align*}
+ 	είναι το τανυστικό γινόμενο $V\otimes V\otimes V^*\otimes V$, ενώ το αντικείμενο 
+ 	\begin{align*}
+ 		F\indices{_{i_1}^{i_2}_{i_3}^{i_4}}
+ 	\end{align*}
+ 	είναι το τανυστικό γινόμενο $V^*\otimes V\otimes V^*\otimes V$.
+ 	
+ 	Τώρα, λοιπόν, πρέπει να μεταφράσουμε αυτά που κάναμε στο προηγούμενο εδάφιο. Θα αρχίσουμε με τις διγραμμικές απεικονίσεις.
+ 	
+ 	Όπως έχουμε πει, οι διγραμμικές απεικονίσεις είναι συναρτήσεις της μορφής $\tau:V\times V\rightarrow\mathbb{F}$, οι οποίες όταν δρουν σε δύο ανύσματα, δίνουν το παρακάτω αριθμητικό άθροισμα
+ 	\begin{align*}
+ 		\tau_{ij}u^iv^j
+ 	\end{align*}
+ 	Τα $u^i$ και $v^j$ είναι ανταλλοίωτα, αφού έχουν πάνω τους δείκτες. Στο χωρίο όπου αιτολογήσαμε την αριθμητική/αλγεβρική μορφή της δράσης ενός συναρτησοειδούς πάνω σε ένα άνυσμα, είδαμε πώς τα ανταλλοίωτα μπορούν να συμβολισθούν ως κάθετοι πίνακες και τα συναρτησοειδή ως πολλαπλασιασμός πινάκων. Εδώ, λοιπόν, έχουμε δύο κάθετους πίνακες. Οπότε το ερώτημα είναι: Τι είναι αυτό που πρέπει να πολλαπλασιάσουμε με δύο κάθετα ανύσματα ώστε να πάρουμε αριθμό; Η απάντηση είναι αυτή:
+ 	\begin{align*}
+ 		\begin{bmatrix}
+ 			a_1 & a_2 & \ldots & a_{\dim(V)}
+ 		\end{bmatrix} \cdot
+ 		\begin{bmatrix}
+ 			u^1 \\
+ 			u^2 \\
+ 			\vdots \\
+ 			u^{\dim(V)}
+ 		\end{bmatrix} \cdot 
+ 		\begin{bmatrix}
+ 			b_1 & b_2 & \ldots & b_{\dim(V)}
+ 		\end{bmatrix} \cdot
+ 		\begin{bmatrix}
+ 			v^1 \\
+ 			v^2 \\
+ 			\vdots \\
+ 			v^{\dim(V)}
+ 		\end{bmatrix}
+ 	\end{align*}
+ 	Εύκολα βλέπει κανείς ότι το ανωτέρο δίνει αριθμό που γράφεται ως το άθροισμα:
+ 	\begin{align*}
+ 		a_ib_ju^iv^j
+ 	\end{align*}
+	Άρα, από το πώς ορίσαμε το τανυστικό γινόμενο, βλέπουμε ότι θα μπορούσαμε να ορίσουμε μία διγραμμική απεικόνιση ως ένα τανυστικό γινόμενο συναρτησοειδών ($\tau \in V^*\otimes V^*$), με συντεταγμένες:
+	\begin{align*}
+		\tau_{ij} = a_ib_j
+	\end{align*}
+ 	
+ 	Αυτό εύκολα το επεκτείνουμε σε πολυγραμμικές απεικονίσεις:
+ 	\begin{corollary}
+ 		Μία πολυγραμμική απεικόνιση ${\tau:\prod_{i=1}^{k}V\rightarrow\mathbb{F}}$ μπορεί να γραφεί ως τανυστικό γινόμενο:
+ 		\begin{align*}
+ 			\tau \in \bigotimes_{i=1}^{k}V^*
+ 		\end{align*}
+ 	\end{corollary}
+ 
+ 	Τώρα μένει να μεταφράσουμε τους τανυστές της μορφής $\tau:\prod_{i=1}^{\ell}V^*\rightarrow\mathbb{F}$, αλλά αυτό είναι πλέον τετριμμένο. Με επιχειρήματα όπως τα ανωτέρω, καταλήγουμε στο εξής:
+ 	\begin{corollary}
+ 		Μία πολυγραμμική απεικόνιση ${\tau:\prod_{i=1}^{k}V^*\rightarrow\mathbb{F}}$ μπορεί να γραφεί ως τανυστικό γινόμενο:
+ 		\begin{align*}
+ 			\tau \in \bigotimes_{i=1}^{k}V
+ 		\end{align*}
+ 	\end{corollary}
+ 
+ 	Λιγότερο τετριμμένη αλλά και πάλι απλή είναι η περίπτωση των μεικτών τανυστών ($\tau:\prod_{i=0}^{k}V^*\prod_{j=0}^{\ell}V\rightarrow\mathbb{F}$). Θα αρχίσουμε με την απλή περίπτωση $\tau:V^*\times V\rightarrow\mathbb{F}$.
+ 	Αυτή η περίπτωση γράφεται με αλγεβρικό άθροισμα ως εξής:
+ 	\begin{align*}
+ 		C^{i}_{j}f_iu^j
+ 	\end{align*}
+ 	Ο προφανέστερος τρόπος να γράψει κανείς το ανωτέρω ως γινόμενο πινάκων είναι αυτός:
+ 	\begin{align*}
+ 		\begin{bmatrix}
+ 			f_1 & f_2 & \ldots & f_{\dim(V)} 
+ 		\end{bmatrix} \cdot
+ 		\begin{bmatrix}
+ 			C^1_1 & C^1_2 & \ldots & C^1_{\dim(V)} \\
+ 			C^2_1 & \ddots & & \vdots\\
+ 			\vdots & & \ddots & \vdots \\
+ 			C^{\dim(V)}_1 & C^{\dim(V)}_2 & \ldots & C^{\dim(V)}_{\dim(V)}
+ 		\end{bmatrix} \cdot
+ 		\begin{bmatrix}
+ 			u^1 \\
+ 			u^2 \\
+ 			\vdots\\
+ 			u^{\dim(V)}
+ 		\end{bmatrix}
+ 	\end{align*}
+ 	Αυτό το γινόμενο δίνει αριθμό, όπως θέλουμε. Όμως, υπάρχει και ένα άλλο γινόμενο που μπορεί να δώσει ακριβώς το ίδιο:
+ 	\begin{align*}
+ 		\begin{bmatrix}
+ 			f_1 & f_2 & \ldots & f_{\dim(V)} 
+ 		\end{bmatrix} \cdot
+ 		\begin{bmatrix}
+ 			A^1_1 \\
+ 			A^2_1 \\
+ 			\ldots \\
+ 			A^{\dim(V)}_1 
+ 		\end{bmatrix} \cdot
+ 		\begin{bmatrix}
+ 			B_1 & B_2 & \ldots & B_{\dim(V)} 
+ 		\end{bmatrix} \cdot
+ 		\begin{bmatrix}
+ 			u^1 \\
+ 			u^2 \\
+ 			\vdots\\
+ 			u^{\dim(V)}
+ 		\end{bmatrix}
+ 	\end{align*}
+ 	και άρα, ο τανυστής $C^i_j$ μπορεί να αναγραφεί ως ένα ανταλλοίωτο και ένα συναλλοίωτο (ΜΕ ΑΥΤΗΝ ΤΗΝ ΣΕΙΡΑ) και καταλήγουμε στο συμπέρασμα ότι οι τανυστές της μορφής ${\tau:V^*\times V \rightarrow\mathbb{F}}$ μπορούν να γραφούν ως τανυστικά γινόμενα $\tau \in V\otimes V^*$. Για τανυστές μεγαλύτερης τάξης, $(k,l)$, παρατηρούμε ότι μπορεί να εκφραστεί από $k$ ανταλλοίωτα αριστερά και $l$ συναλλοίωτα δεξιά.
+ 	\begin{corollary}
+ 		Μία πολυγραμμική απεικόνιση ${\tau:\prod_{i=1}^{k}V^*\prod_{j=1}^{\ell}V\rightarrow\mathbb{F}}$ μπορεί να γραφεί ως τανυστικό γινόμενο:
+ 		\begin{align*}
+ 			\tau \in \bigotimes_{i=1}^{k}V\bigotimes_{j=1}^{\ell}V^*
+ 		\end{align*}
+ 	\end{corollary}
+ 
+ 	Σχετικά εύκολα μπορεί κάποιος να δει ότι μπορούμε να ορίσουμε το τανυστικό γινόμενο ως την εξής πράξη μεταξύ πινάκων:
+ 	\begin{align*}
+ 		\begin{bmatrix}
+ 			u^1 \\
+ 			u^2 \\
+ 			\vdots\\
+ 			u^{\dim(V)}
+ 		\end{bmatrix} \otimes 
+ 		\begin{bmatrix}
+ 			v^1 \\
+ 			v^2 \\
+ 			\vdots\\
+ 			v^{\dim(V)}
+ 		\end{bmatrix} =
+ 		\begin{bmatrix}
+ 			u^1v^1 \\
+ 			u^1v^2 \\
+ 			\vdots\\
+ 			u^1v^{\dim(V)}\\
+ 			u^2v^1\\
+ 			\vdots \\
+ 			u^{\dim(V)}v^{\dim(V)}\\
+ 		\end{bmatrix}
+	\end{align*}
+	για δύο ανταλλοίωτα
+	\begin{align*}
+		\begin{bmatrix}
+			f_1 & f_2 & \ldots & f_{\dim(V)} 
+		\end{bmatrix} \otimes 
+		\begin{bmatrix}
+			g_1 & g_2 & \ldots & g_{\dim(V)} 
+		\end{bmatrix} =
+		\begin{bmatrix}
+			f_1g_1 & f_1g_2 & \ldots & f_1g_{\dim(V)} & f_2g_1 & \ldots & f_{\dim(V)}g_{\dim(V)} 
+		\end{bmatrix} 
+	\end{align*}
+	για δύο συναλλοίωτα και
+	\begin{align*}
+		\begin{bmatrix}
+			u^1 \\
+			u^2 \\
+			\vdots\\
+			u^{\dim(V)}
+		\end{bmatrix} \otimes 
+		\begin{bmatrix}
+			f_1 & f_2 & \ldots & f_{\dim(V)} 
+		\end{bmatrix} =
+		\begin{bmatrix}
+			u^1f_1 & u^1f_2 & \ldots & u^1f_{\dim(V)} \\
+			u^2f_1 & \ddots & & \vdots\\
+			\vdots & & \ddots & \vdots \\
+			u^{\dim(V)}f_1 & u^{\dim(V)}f_2 & \ldots & u^{\dim(V)}f_{\dim(V)}
+		\end{bmatrix}
+	\end{align*}
+	για ένα ανταλλοίωτο και ένα συναλλοίωτο.
+	
+	Όταν έχουμε ένα συναλλοίωτο και ένα ανταλλοίωτο, δεν υπάρχει πίνακας που να εκφράζει το τανυστικό γινόμενο. 
+	
+	Τώρα, λοιπόν, μπορούμε να ορίσουμε έναν τανυστή βάσει του τανυστικού γινομένου:
+	\begin{definition}
+		Ονομάζουμε τανυστή τάξης $(k,l)$ ενός ανυσματικού χώρου $V$ το αντικείμενο
+		\begin{align*}
+			\tau \in \bigotimes_{i=1}^{k}V\bigotimes_{j=1}^{\ell}V^*
+		\end{align*}
+	\end{definition}
 \end{document}
